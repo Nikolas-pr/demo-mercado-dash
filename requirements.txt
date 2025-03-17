@@ -9,4 +9,5 @@ dash-core-components
 dash-html-components
 dash-table
 dash-auth
+openpyxl
 gunicorn
