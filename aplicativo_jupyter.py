@@ -746,4 +746,4 @@ def update_text(horizonte, confianza):
     
 
 if __name__ == '__main__':
-    app.run_server(debug=True, jupyter_mode="external", port=8060)
+    app.run_server(debug=True)
