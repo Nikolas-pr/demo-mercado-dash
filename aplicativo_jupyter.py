@@ -4,8 +4,6 @@
 # # Generación de datos simulados para la ficha tecnica
 
 
-
-
 import pandas as pd
 import plotly.express as px
 import plotly.colors as pc
