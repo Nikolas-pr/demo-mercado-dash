@@ -1,0 +1,21 @@
+@font-face {
+    font-family: 'MiFuente';
+    src: url('DINPRO-LIGHT.ttf') format('truetype'); /* O usa .woff si es el caso */
+}
+
+body {
+    font-family: 'MiFuente', sans-serif;
+}
+
+
+.rc-slider-track {
+    background-color: #FE4902 !important; /* Color de la barra */
+}
+
+.rc-slider-handle {
+    border-color: #FE4902 !important; /* Color del círculo */
+}
+
+.rc-slider-dot-active {
+    border-color: #FE4902 !important; /* Color de los puntos activos */
+}
