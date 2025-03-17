@@ -353,8 +353,8 @@ fig.show()
 
 # In[ ]:
 
-import pandas as pd
-curvas  = pd.read_excel('curvaspy.xlsx')
+url = "https://github.com/hugosabogalpronus/demo-mercado/raw/main/curvaspy.xlsx"
+curvas  = pd.read_excel(url)
 
 
 # In[20]:
