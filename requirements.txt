@@ -1,7 +1,6 @@
 pandas
 numpy
 plotly
-plotly-express
 matplotlib
 dash
 dash-bootstrap-components
@@ -11,3 +10,4 @@ dash-table
 dash-auth
 openpyxl
 gunicorn
+scipy

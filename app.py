@@ -7,10 +7,15 @@
 import pandas as pd
 import plotly.express as px
 import plotly.colors as pc
-import pandas as pd
 import matplotlib.pyplot as plt
 import plotly.graph_objects as go
 import math
+import numpy as np
+import io
+import plotly.figure_factory as ff
+from dash import Dash, html, dash_table, dcc, callback, Output, Input,State, ctx
+import plotly.express as px
+import dash_auth
 
 # ETFs de Renta Variable
 renta_variable = pd.DataFrame({
@@ -53,7 +58,6 @@ fechas = pd.date_range(start=fecha_inicio, end=fecha_fin, freq='B')[:dias]  # So
 
 
 # --- Simulación de datos ---
-import numpy as np
 
 np.random.seed(42)
 dias = 252
@@ -68,7 +72,6 @@ fig_line = px.line(df_evolucion, x='fecha', y='Valor Portafolio', title = 'Evolu
 
 # Otra simulación de datos
 
-import pandas as pd
 
 # Crear el dataframe con valores en porcentaje
 df = pd.DataFrame({
@@ -88,7 +91,6 @@ print(df)
 # In[ ]:
 
 
-import pandas as pd
 
 data = {
     "Emisor / Administrador": [
@@ -115,7 +117,6 @@ df_participacion
 # In[ ]:
 
 
-import pandas as pd
 
 data_cupos = {
     "Emisor / Administrador": [
@@ -211,7 +212,7 @@ def sim_caminos(s0, volatilidad, delta_t, media, semanas):
 # In[10]:
 
 
-import plotly.figure_factory as ff
+
 
 def histogram(s0, volatilidad, delta_t, media, semanas, confianza):
     percentil = 100 - confianza
@@ -299,7 +300,8 @@ fanchart['fecha'] = pd.to_datetime(fanchart['fecha'])
 
 fanchart=fanchart[fanchart["fecha"].dt.dayofweek == 4]
 
-valor_fijo = float(fanchart.loc[fanchart["fecha"]=="2024-12-13"]['Valor Portafolio'])
+valor_fijo = float(fanchart.loc[fanchart["fecha"] == "2024-12-13", 'Valor Portafolio'].iloc[0])
+
 
 fanchart.loc[fanchart["fecha"]=="2024-12-13"]=fanchart.loc[fanchart["fecha"]=="2024-12-13"].fillna(valor_fijo)
 
@@ -307,7 +309,7 @@ fanchart.loc[fanchart["fecha"]=="2024-12-13"]=fanchart.loc[fanchart["fecha"]=="2
 # In[13]:
 
 
-import plotly.graph_objects as go
+
 
 fig = go.Figure()
 
@@ -358,7 +360,7 @@ curvas  = pd.read_excel(url)
 # In[20]:
 
 
-import plotly.express as px
+
 
 fig_curvas = px.line(
     curvas,
@@ -491,11 +493,7 @@ fig_line.update_traces(line=dict(color="#FE4902"))
 # In[ ]:
 
 
-from dash import Dash, html, dash_table, dcc, callback, Output, Input,State, ctx
-import plotly.express as px
-import pandas as pd
-import io
-import dash_auth
+
 
 
 # Inicializar app Dash
@@ -745,3 +743,5 @@ def update_text(horizonte, confianza):
 
 if __name__ == '__main__':
     app.run_server(debug=False)
+
+# %%
